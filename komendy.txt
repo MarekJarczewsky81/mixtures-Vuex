@@ -1,0 +1,26 @@
+yarn add animate.css
+
+----------------------------------------------------------------------
+yarn add vue-cli-plugin-style-resources-loader style-resources-loader
+
+Konfiguracja pluginu:
+--------------------------------------------------------------------
+vue.config.js: 
+--------------------------------------------------------------------
+const path = require('path')
+
+module.exports = {
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'scss',
+      patterns: [path.resolve(__dirname, './src/styles/_variables.scss')]
+    }
+  }
+}
+--------------------------------------------------------------------------
+
+Informujemy tutaj, gdzie dokładnie jest nasz plik ze zmiennymi. 
+I to tyle! Webpack będzie teraz zawsze dbał o dostęp do niego.
+
+Teraz przejrzyj aplikację w poszukiwaniu wartości, które możesz przenieść do zmiennych. 
+Jeśli takowe znajdziesz, dodaj je do _variables.scss, a następnie wykorzystaj w komponentach.
