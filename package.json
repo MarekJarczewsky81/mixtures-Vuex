@@ -14,8 +14,9 @@
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
     "sass": "^1.62.1",
-    "vue": "^3.0.0-beta.1",
-    "vue-router": "^4.3.3"
+    "vue": "^3.4.30",
+    "vue-router": "^4.3.3",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
