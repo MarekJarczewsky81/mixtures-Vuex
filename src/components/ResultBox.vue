@@ -107,6 +107,8 @@ export default {
   margin: 0 auto;
 }
 
+
+
 .slide-fade-enter-active {
   transition: opacity .3s;
 }
