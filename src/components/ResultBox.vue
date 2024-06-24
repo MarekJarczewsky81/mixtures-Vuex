@@ -14,6 +14,9 @@
     <!-- rgb values -->
     <p>{{ mixtureEffectFill }}</p>
 
+    <!-- paragraph with the number of colors -->
+    <p>There are {{ colorsCount }} colors in your pocket!</p>
+
     <!-- refresh btn -->
     <button-item
       @click="$emit('refresh')"
@@ -62,6 +65,7 @@ import ButtonItem from './shared/ButtonItem.vue'
 import ModalItem from './shared/ModalItem.vue'
 import modalMixin from '../mixins/modalMixin.js'
 import FadeAnimation from './shared/FadeAnimation.vue'
+import { mapState } from 'vuex';
 
 export default {
   name: 'ResultsBox',
@@ -73,6 +77,10 @@ export default {
     }
   },
   computed: {
+    ...mapState(['colors']),
+    colorsCount () {
+      return this.colors.length;
+    },
     mixtureEffectFill () {
       const [redCol, greenCol, blueCol] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
       return `rgb(${redCol}, ${greenCol}, ${blueCol})`
