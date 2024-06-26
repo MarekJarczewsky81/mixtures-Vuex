@@ -92,6 +92,9 @@ export default {
     shareUrl () {
       const [red, green, blue] = this.mixtures.map(item => Math.floor(item.amount * 2.5));
       return `/color/${red}/${green}/${blue}`;
+    },
+    colorsCount () {
+      return this.$store.getters.colorsCount
     }
   },
   methods: {

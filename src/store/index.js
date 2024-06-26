@@ -44,7 +44,9 @@ const store = createStore({
   getters: {
     mixtures: state => state.mixtures,
     RGBColors: state => state.colors.map(color => `rgb(${color.red}, ${color.green}, ${color.blue})`),
-    colorsCount: (state, getters) => getters.RGBColors.length
+    colorsCount (state) {
+      return state.colors.length;
+    }
   },
   mutations: {
     INCREMENT_MIXTURE(state, index) {

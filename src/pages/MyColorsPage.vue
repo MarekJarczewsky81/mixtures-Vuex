@@ -12,6 +12,11 @@ export default {
   name: 'MyColorsPage',
   components: {
     MyColorsList
+  },
+  computed: {
+    colorsCount () {
+      return this.$store.getters.colorsCount
+    }
   }
 }
 </script>

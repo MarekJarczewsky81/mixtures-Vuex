@@ -38,7 +38,7 @@ export default {
 .colors-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 15rem;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
 }
