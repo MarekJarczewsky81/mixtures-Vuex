@@ -40,6 +40,13 @@
         :font-size="1.5" />
     </router-link>
 
+    <!-- save btn -->
+    <button-item
+      @click="saveColor"
+      :size="4"
+      icon="pi pi-save"
+      :font-size="1.5" />
+
     <!-- modal -->
     <fade-animation>
       <modal-item
@@ -65,7 +72,7 @@ import ButtonItem from './shared/ButtonItem.vue'
 import ModalItem from './shared/ModalItem.vue'
 import modalMixin from '../mixins/modalMixin.js'
 import FadeAnimation from './shared/FadeAnimation.vue'
-import { mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'ResultsBox',
@@ -77,10 +84,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['colors']),
-    colorsCount () {
-      return this.colors.length;
-    },
+    // ...mapGetters(['addColor']), // Dodanie gettera
     mixtureEffectFill () {
       const [redCol, greenCol, blueCol] = this.mixtures.map(item => Math.floor(item.amount * 2.5))
       return `rgb(${redCol}, ${greenCol}, ${blueCol})`
@@ -88,6 +92,12 @@ export default {
     shareUrl () {
       const [red, green, blue] = this.mixtures.map(item => Math.floor(item.amount * 2.5));
       return `/color/${red}/${green}/${blue}`;
+    }
+  },
+  methods: {
+    ...mapActions(['addColor']),
+    saveColor () {
+      this.addColor(this.mixtures)
     }
   },
   components: {
@@ -106,8 +116,6 @@ export default {
   font-size: 20rem;
   margin: 0 auto;
 }
-
-
 
 .slide-fade-enter-active {
   transition: opacity .3s;

@@ -12,6 +12,7 @@
       icon="pi pi-arrow-down"
       @click="handleDecrement"
     />
+
     <div
         :class="fillClasses"
         :style="fillStyle"
@@ -26,6 +27,15 @@
       :movement="-0.5"
       @click="handleIncrement"
     />
+
+    <!-- remove btn -->
+    <button-item
+      v-if="showRemoveButton"
+      class="flask__btn flask__btn--center"
+      @click="$emit('remove')"
+      icon="pi pi-trash"
+    />
+
   </div>
 </template>
 
@@ -55,6 +65,10 @@ export default {
     buttonsVisible: {
       type: Boolean,
       default: true
+    },
+    showRemoveButton: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
